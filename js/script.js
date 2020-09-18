@@ -123,6 +123,8 @@ function myTimer() {
  getBackgroundColor();
  printQuote();
 }
+// This function connected to button
+// This resets the timer but has no way of restarting
 function resetTimer() {
 clearInterval(Timer);
 getBackgroundColor();
