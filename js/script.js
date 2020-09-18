@@ -64,21 +64,27 @@ let quotes = [
   { quote: "You've got to be willing to lose everything to gain yourself",
     source: 'Iyanla Vanzant',
     year: 1988,
-    category: ['Motivational', 'Inspirational']
+    category: 'Motivational',
   },
   { quote: 'Our goals can only be reached through the vehicle of a plan. There is no other route to success.',
     source: 'Pablo Picasso',
     year: 1988,
-    category: ['Motivational', 'Inspirational']
+    category: 'Motivational'
   } 
 ];
 
 // Function selects a quote at random by generating a number between [0 - number of quotes] that corresponds to array location
 let randomQuote = ' ';
-function getRandomQuote (){
+function getRandomQuote () {
   randomNumber = Math.floor( Math.random() * quotes.length );
   randomQuote = quotes[randomNumber];
-}
+
+  do {
+    if ( randomNumber === randomNumber ) {
+      randomNumber = Math.floor(Math.random() * quotes.length );
+    }
+    }while ( randomNumber !== randomNumber);
+  }
 
 // Function calls  on other functions to generate random quote
 let html = ' ';
@@ -94,43 +100,39 @@ function printQuote () {
   if ( randomQuote.year ) {
     html +=  `<span class="citation">${randomQuote.year}</span>`;
   }
-
 if ( randomQuote.category ) {
   html += `<span class="category">${randomQuote.category}</span>`;
   for ( i = 0; i < randomQuote.category; i++ ) {
   html += `<span class="category">${randomQuote.category}</span>`;
   }
 }
-  // Not sure if I need this line tbh
-  html += `</p>`
+// Not sure if I need this line tbh
+html += `</p>`
+document.getElementById('quote-box').innerHTML = html;
 }
 printQuote();
+
 // Function to change background color
 // Will go back to simplify this function
-function getBackgroundColor( ) {
-  var x = Math.floor(Math.random() * 256);
-  var y = Math.floor(Math.random() * 256);
-  var z = Math.floor(Math.random() * 256);
-  let backgroundColor = `rgb( ${x}, ${y}, ${z})`;
+function getBackgroundColor() {
+  var x = Math.floor(Math.random() * 360);
+  var y = Math.floor(Math.random() * 60);
+  var z = Math.floor(Math.random() * 50);
+  let backgroundColor = `hsl( ${x}, ${y}%, ${z}%)`;
   document.body.style.background = backgroundColor;
 }
 
 // changes the background & quote every 5 minutes  (1000 milliseconds = 1 sec)
-let startTimer = setInterval( () =>  getBackgroundColor(), 1000 * 60 * 5);
-let restartTime = clearInterval();
-
-// I need help to change background and quote using the button
-/*** button.addEventListener('click', function() {
-  printQuote();
-  getBackgroundColor();
-});
-***/
-
-// I need help creating a function that prevents repeating quotes
-
+let Timer = setInterval(myTimer, 1000 * 60 *5 );
+function myTimer() {
+ getBackgroundColor();
+ printQuote();
+}
+function resetTimer() {
+clearInterval(startTimer);
+}
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
-document.getElementById('quote-box').innerHTML = html;
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
