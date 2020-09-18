@@ -115,6 +115,11 @@ h1 {
   font-style: normal;
 }
 
+.category:before {
+  content: ", ";
+  font-style: normal;
+}
+
 @media (min-width: 768px) {
   body {
     padding: 25px;
@@ -162,5 +167,9 @@ h1 {
 
   .source {
     font-size: 1.25rem;
+  }
+  
+  .category {
+    font-size: 1rem;
   }
 }

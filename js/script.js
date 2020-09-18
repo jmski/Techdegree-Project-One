@@ -1,89 +1,112 @@
-/******************************************
-Treehouse FSJS Techdegree:
-project 1 - A Random Quote Generator
-******************************************/
+// Treehouse FSJS Techdegree: Project 1 - A Random Quote Generator
 
-// For assistance: 
-  // Check the "Project Resources" section of the project instructions
-  // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
-
-/*** 
- * `quotes` array 
-***/
+// Array of objects of quotes and their sources
 let quotes = [
   { quote: 'A source who never made a mistake never tried anything new.',  
     source: 'Albert Einstein' ,
     citation: 'Aberdeen American News',
-    year: 1988
+    year: 1988,
+    category: 'Motivational'
   },
   { quote: "If opportunity doesn't knock, build a door.", 
-    source: 'Milton Berle'
+    source: 'Milton Berle',
+    year: 1988,
+    category: 'Motivational'
   },
   { quote: 'A smooth sea never made a skilled sailor.',
-    source: 'Franklin D. Roosevelt'
+    source: 'Franklin D. Roosevelt',
+    year: 1988,
+    category: 'Motivational'
   },
   { quote: "Happiness often sneaks in through a door you didn't know you left open.", 
-    source: 'John Barrymore'
+    source: 'John Barrymore',
+    year: 1988,
+    category: 'Motivational'
   },
   { quote: 'Sometimes good things fall apart so better things can fall together', 
-    source: 'Marilyn Monroe'
+    source: 'Marilyn Monroe',
+    year: 1988,
+    category: 'Motivational'
   },
   { quote: 'Pain is temporary. Quitting lasts forever.', 
-    source: 'Lance Armstrong' 
+    source: 'Lance Armstrong',
+    year: 1988,
+    category: 'Motivational'
   },
   { quote: 'If you are always trying to be normal, you will never know how amazing you can be.',
-    source: 'Maya Angelou'
+    source: 'Maya Angelou',
+    year: 1988,
+    category: 'Motivational'
   },
   { quote: 'No pressure, no diamonds.',
-    source: 'Thomas Carlyle'
+    source: 'Thomas Carlyle',
+    year: 1988,
+    category: 'Motivational'
   },
   { quote: 'The secret of getting ahead is getting started',
-    source: 'Mark Twain'
+    source: 'Mark Twain',
+    year: 1988,
+    category: 'Motivational'
   },
   { quote: "You've got to be willing to lose everything to gain yourself",
-    source: 'Iyanla Vanzant'
+    source: 'Iyanla Vanzant',
+    year: 1988,
+    category: 'Motivational'
   },
   { quote: 'Our goals can only be reached through the vehicle of a plan. There is no other route to success.',
-    source: 'Pablo Picasso'
+    source: 'Pablo Picasso',
+    year: 1988,
+    category: 'Motivational'
   } 
 ];
 
-/***
- * `getRandomQuote` function
-***/
-let randomNumber = 0;
+// Function selects a quote at random by generating a number between [0 - number of quotes] that corresponds to array location
 let randomQuote = ' ';
 function getRandomQuote (){
   randomNumber = Math.floor( Math.random() * quotes.length );
-  return randomQuote = quotes[randomNumber];
+  randomQuote = quotes[randomNumber];
 }
 
-/***
- * `printQuote` function
-***/
+// Function calls  on other functions to generate random quote
 let html = ' ';
-function printQuote () {
+function printQuote () { 
   getRandomQuote();
+  html = ` <p class="quote">${randomQuote.quote}</p> `;
+  html += `  <p class="source">${randomQuote.source} `;
 
-html = 
-  `<p class="quote">${randomQuote.quote}</p> 
-    <p class="source">${randomQuote.source}</p>`;
-
- if ( 'citation' in quotes ) {
-  html +=  `<span class="citation">${randomQuote.citation}</span></p>`;
+// Having issues with this. Unsure what the conditions should look like
+  if ( randomQuote.citation ) {
+   html +=  `<span class="citation">${randomQuote.citation}</span>`;
   }
-if ( 'year' in quotes ) {
-  html +=  `<span class="citation">${randomQuote.year}</span></p>`;
-
+  if ( randomQuote.year ) {
+    html +=  `<span class="citation">${randomQuote.year}</span>`;
   }
+
+if ( randomQuote.category ) {
+  html += `<span class="category">${randomQuote.category}</span>`;
+  for ( i = 0; i < randomQuote.category; i++ ) {
+    html += `<span class="category">${randomQuote.category}</span>`;
+  }
+}
+  // Not sure if I need this line tbh
+  html += `</p>`
 }
 printQuote();
+// Function to change background color
+// Will go back to simplify this function
+function getBackgroundColor( ) {
+  var x = Math.floor(Math.random() * 256);
+  var y = Math.floor(Math.random() * 256);
+  var z = Math.floor(Math.random() * 256);
+  let backgroundColor = `rgb( ${x}, ${y}, ${z})`;
+  document.body.style.background = backgroundColor;
+}
 
+// changes the background & quote every 5 minutes  (1000 milliseconds = 1 sec)
+let refreshTimer = setInterval( () =>  getBackgroundColor(), 1000 * 60* 5);
 
-/***
- * Change background with each quote
- */
-
+// Press the button to change background and quote
+printQuote();
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
