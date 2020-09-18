@@ -118,6 +118,7 @@ function getBackgroundColor() {
 }
 
 // changes the background & quote every 5 minutes  (1000 milliseconds = 1 sec)
+// timer set to 1 sec for testing
 let Timer = setInterval(myTimer, 1000 * 1 *1 );
 function myTimer() {
  getBackgroundColor();
