@@ -118,13 +118,14 @@ function getBackgroundColor() {
 }
 
 // changes the background & quote every 5 minutes  (1000 milliseconds = 1 sec)
-let Timer = setInterval(myTimer, 1000 * 60 *5 );
+let Timer = setInterval(myTimer, 1000 * 1 *1 );
 function myTimer() {
  getBackgroundColor();
  printQuote();
 }
 function resetTimer() {
-clearInterval(startTimer);
+clearInterval(Timer);
+getBackgroundColor();
 }
 /***
  * click event listener for the print quote button
