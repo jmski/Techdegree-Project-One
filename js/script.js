@@ -116,7 +116,7 @@ function getBackgroundColor( ) {
 }
 
 // changes the background & quote every 5 minutes  (1000 milliseconds = 1 sec)
-let refreshTimer = setInterval( () =>  getBackgroundColor(), 1000 * 1 * 5);
+let refreshTimer = setInterval( () =>  getBackgroundColor(), 1000 * 60 * 5);
 
 // I need help to change background and quote using the button
 /*** button.addEventListener('click', function() {
