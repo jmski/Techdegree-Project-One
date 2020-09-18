@@ -119,17 +119,14 @@ function getBackgroundColor() {
 
 // changes the background & quote every 5 minutes  (1000 milliseconds = 1 sec)
 // timer set to 1 sec for testing
-let Timer = setInterval(myTimer, 1000 * 1 *1 );
+let Timer = setInterval(myTimer, 1000 * 60 *5 );
 function myTimer() {
+ clearInterval(Timer);
  getBackgroundColor();
  printQuote();
+ Timer = setInterval(myTimer, 1000 * 6 * 5 );
 }
-// This function connected to button
-// This resets the timer but has no way of restarting
-function resetTimer() {
-clearInterval(Timer);
-getBackgroundColor();
-}
+
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
