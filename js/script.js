@@ -1,5 +1,18 @@
 // Treehouse FSJS Techdegree: Project 1 - A Random Quote Generator
 
+
+/*** 
+ * Hello,
+ * Thank you for taking the time to look at my code.
+ * I am aiming for exceeds grade
+ * 
+ * I'm currently struggling on a few things:
+1. clicking on button runs a function to change quote and background (NOT WORKING)
+2. a function that prevents a quote from repeating (no idea how to implement this)
+3. a function to reset the quote + generator timer
+4. Display a list of categories if there are more than one variables in array, format with join(', ')?? 
+*/
+
 // Array of objects of quotes and their sources
 let quotes = [
   { quote: 'A source who never made a mistake never tried anything new.',  
@@ -51,12 +64,12 @@ let quotes = [
   { quote: "You've got to be willing to lose everything to gain yourself",
     source: 'Iyanla Vanzant',
     year: 1988,
-    category: 'Motivational'
+    category: ['Motivational', 'Inspirational']
   },
   { quote: 'Our goals can only be reached through the vehicle of a plan. There is no other route to success.',
     source: 'Pablo Picasso',
     year: 1988,
-    category: 'Motivational'
+    category: ['Motivational', 'Inspirational']
   } 
 ];
 
@@ -85,7 +98,7 @@ function printQuote () {
 if ( randomQuote.category ) {
   html += `<span class="category">${randomQuote.category}</span>`;
   for ( i = 0; i < randomQuote.category; i++ ) {
-    html += `<span class="category">${randomQuote.category}</span>`;
+  html += `<span class="category">${randomQuote.category}</span>`;
   }
 }
   // Not sure if I need this line tbh
@@ -103,10 +116,17 @@ function getBackgroundColor( ) {
 }
 
 // changes the background & quote every 5 minutes  (1000 milliseconds = 1 sec)
-let refreshTimer = setInterval( () =>  getBackgroundColor(), 1000 * 60* 5);
+let refreshTimer = setInterval( () =>  getBackgroundColor(), 1000 * 1 * 5);
 
-// Press the button to change background and quote
-printQuote();
+// I need help to change background and quote using the button
+/*** button.addEventListener('click', function() {
+  printQuote();
+  getBackgroundColor();
+});
+***/
+
+// I need help creating a function that prevents repeating quotes
+
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
