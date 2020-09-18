@@ -6,11 +6,6 @@
  * Thank you for taking the time to look at my code.
  * I am aiming for exceeds grade
  * 
- * I'm currently struggling on a few things:
-1. clicking on button runs a function to change quote and background (NOT WORKING)
-2. a function that prevents a quote from repeating (no idea how to implement this)
-3. a function to reset the quote + generator timer
-4. Display a list of categories if there are more than one variables in array, format with join(', ')?? 
 */
 
 // Array of objects of quotes and their sources
