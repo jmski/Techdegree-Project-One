@@ -1,4 +1,4 @@
-// Treehouse FSJS Techdegree: Project 1 - A Random Quote Generator
+ \ // Treehouse FSJS Techdegree: Project 1 - A Random Quote Generator
 
 
 /*** 
@@ -74,10 +74,11 @@ function getRandomQuote () {
   randomNumber = Math.floor( Math.random() * quotes.length );
   randomQuote = quotes[randomNumber];
 
+  // Prevents the same number to roll twice in a row, will reroll if the numbers are the same
   do {
     if ( randomNumber === randomNumber ) {
       randomNumber = Math.floor(Math.random() * quotes.length );
-    }
+      }
     }while ( randomNumber !== randomNumber);
   }
 
@@ -88,7 +89,7 @@ function printQuote () {
   html = ` <p class="quote">${randomQuote.quote}</p> `;
   html += `  <p class="source">${randomQuote.source} `;
 
-// Having issues with this. Unsure what the conditions should look like
+// If quote has citation, year or category, display them on the website
   if ( randomQuote.citation ) {
    html +=  `<span class="citation">${randomQuote.citation}</span>`;
   }
@@ -101,25 +102,27 @@ if ( randomQuote.category ) {
   html += `<span class="category">${randomQuote.category}</span>`;
   }
 }
-// Not sure if I need this line tbh
+// Closes paragraph tag and prints quote 
 html += `</p>`
 document.getElementById('quote-box').innerHTML = html;
 }
 printQuote();
 
-// Function to change background color
-// Will go back to simplify this function
+// Function to change background color to hsl
 function getBackgroundColor() {
-  var x = Math.floor(Math.random() * 360);
-  var y = Math.floor(Math.random() * 60);
-  var z = Math.floor(Math.random() * 50);
+  var x = Math.floor(Math.random() * 360); // Hue
+  var y = Math.floor(Math.random() * 60); // Saturation
+  var z = Math.floor(Math.random() * 50); // Lightness
   let backgroundColor = `hsl( ${x}, ${y}%, ${z}%)`;
   document.body.style.background = backgroundColor;
 }
 
-// changes the background & quote every 5 minutes  (1000 milliseconds = 1 sec)
-// timer set to 1 sec for testing
+//  Timer is set to 5 minutes
+// (millisecond) * ( second) * (minute).
 let Timer = setInterval(myTimer, 1000 * 60 *5 );
+
+// changes the background & quote every 5 minutes
+// When user clicks on button, the function runs; the timer is cleared, then restarts timer.
 function myTimer() {
  clearInterval(Timer);
  getBackgroundColor();
