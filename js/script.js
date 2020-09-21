@@ -1,4 +1,4 @@
- \ // Treehouse FSJS Techdegree: Project 1 - A Random Quote Generator
+// Treehouse FSJS Techdegree: Project 1 - A Random Quote Generator
 
 
 /*** 
