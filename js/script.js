@@ -110,9 +110,9 @@ printQuote();
 
 // Function to change background color to hsl
 function getBackgroundColor() {
-  var x = Math.floor(Math.random() * 360); // Hue
-  var y = Math.floor(Math.random() * 60); // Saturation
-  var z = Math.floor(Math.random() * 50); // Lightness
+  let x = Math.floor(Math.random() * 360); // Hue
+  let y = Math.floor(Math.random() * 60); // Saturation
+  let z = Math.floor(Math.random() * 50); // Lightness
   let backgroundColor = `hsl( ${x}, ${y}%, ${z}%)`;
   document.body.style.background = backgroundColor;
 }
